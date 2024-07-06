@@ -1,41 +1,42 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+include_once("PHPMailer/PHPMailer.php");
+include_once("PHPMailer/SMTP.php");
+include_once("PHPMailer/Exception.php");
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+$mail = new PHPMailer(true);
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+$nome       = $_POST['nome'];
+$sobrenome  = $_POST['sobrenome'];
+$email      = $_POST['email'];
+$mensagem   = $_POST['mensagem'];
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+try {
+    //Server settings
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->CharSet    = 'UTF-8';                                //Set the character set of the message
+    $mail->Host       = 'smtp.gmail.com';                       //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'seu email do google';                  //SMTP username
+    $mail->Password   = 'gerar a senha do app google';          //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable implicit TLS encryption
+    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+    //Recipients
+    $mail->setFrom('seu email do google', 'Mail Project');
+    $mail->addAddress('seu email do google');
+    //$mail->addCC('cc@example.com');
 
-  echo $contact->send();
-?>
+    //Content
+    $mail->isHTML(true); //Set email format to HTML
+    $mail->Subject = "Mensagem de $nome $sobrenome";
+    $mail->Body    = $mensagem . "<br><br> Email para contato: $email";
+
+    $mail->send();
+    echo '<b>Mensagem enviada com sucesso</b>';
+} catch (Exception $e) {
+    echo 'Não foi possível enviar a mensagem. Erro do Mailer' . $mail->ErrorInfo;
+}
