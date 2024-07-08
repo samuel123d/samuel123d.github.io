@@ -54,7 +54,7 @@ body article {
   top: -50%;
   width: 200%;
   height: 200%;
-  background-image: url("../src/back-white.png");
+  background-image: url("../assets/img/best-back.jpg");
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
