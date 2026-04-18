@@ -50,4 +50,3 @@ Para explorar ou modificar o projeto no seu ambiente de desenvolvimento:
 1. Efetue o clone do repositório:
    ```bash
    git clone [https://github.com/samuel123d/samuel123d.github.io.git](https://github.com/samuel123d/samuel123d.github.io.git)
-
