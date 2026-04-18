@@ -51,9 +51,3 @@ Para explorar ou modificar o projeto no seu ambiente de desenvolvimento:
    ```bash
    git clone [https://github.com/samuel123d/samuel123d.github.io.git](https://github.com/samuel123d/samuel123d.github.io.git)
 
-Thanks for downloading this template!
-
-Template Name: Lonely
-Template URL: https://bootstrapmade.com/free-html-bootstrap-template-lonely/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
