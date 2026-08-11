@@ -8,7 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const cursor = document.getElementById("cursor");
   const follower = document.getElementById("cursorFollower");
   const bgGlow = document.getElementById("bgGlow");
-  document.querySelector(".site-nav")?.remove();
+  const header = document.querySelector(".site-header");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const siteNav = document.querySelector(".site-nav");
+
+  if (header && menuToggle && siteNav) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = header.classList.toggle("menu-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+    });
+
+    siteNav.addEventListener("click", (event) => {
+      if (!event.target.closest("a")) return;
+      header.classList.remove("menu-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menu");
+    });
+  }
   const hoverTargets = document.querySelectorAll(".hover-target, a, button");
 
   let mouseX = 0, mouseY = 0;
