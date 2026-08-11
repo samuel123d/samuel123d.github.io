@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cursor = document.getElementById("cursor");
   const follower = document.getElementById("cursorFollower");
   const bgGlow = document.getElementById("bgGlow");
+  document.querySelector(".site-nav")?.remove();
   const hoverTargets = document.querySelectorAll(".hover-target, a, button");
 
   let mouseX = 0, mouseY = 0;
