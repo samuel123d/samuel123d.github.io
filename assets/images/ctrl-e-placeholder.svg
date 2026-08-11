@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#0b0b0c"/>
+  <rect x="100" y="90" width="700" height="420" rx="32" fill="#121217" stroke="#E4B062" stroke-width="4"/>
+  <text x="450" y="260" text-anchor="middle" fill="#E4B062" font-family="Segoe UI, sans-serif" font-size="78">CTRL+E</text>
+  <text x="450" y="340" text-anchor="middle" fill="#f2f1eb" font-family="Segoe UI, sans-serif" font-size="42">2025</text>
+  <text x="450" y="420" text-anchor="middle" fill="#9b9a93" font-family="Segoe UI, sans-serif" font-size="28">[FOTO DO PRÊMIO OU EVENTO]</text>
+</svg>

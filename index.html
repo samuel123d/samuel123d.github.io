@@ -1,415 +1,518 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samuel.dev | Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
 
-  <title>My portifolio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet" />
 
-  <!-- Favicons -->
-  <link href="assets/img/icon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i&subset=cyrillic" rel="stylesheet">
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="styles.css" />
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Lonely
-  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-lonely/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <!-- Bibliotecas de Animação -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.0/lenis.min.js"></script>
 </head>
 
 <body>
+  <!-- Cursor Personalizado -->
+  <div class="custom-cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column align-items-center justify-content-center  ">
-   
-    
-      <h1 id="ele1">Hello! I'm Samuel</h1>
-      <h2 id="ele2">Developer and Administrator </h2>
-      <a href="#about"><i class="bi bi-chevron-double-down btn-get-started"></i></a>
+  <!-- Fundo Reativo e Elementos Tech Flutuantes -->
+  <div class="bg-glow" id="bgGlow"></div>
+  <div class="bg-grid"></div>
+  <div class="particles-container" id="particlesContainer"></div>
 
-  </section><!-- End Hero -->
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <div class="logo">
-        <h1><a href="index.html">Samuel.clipes</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+  <!-- Loader -->
+  <div class="loader">
+    <div class="loader-content">
+      <div class="loader-logo hover-target">Samuel<span>.dev</span></div>
+      <div class="loader-progress">
+        <div class="bar"></div>
       </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#skills">Skills</a></li>
-          <li><a class="nav-link scrollto" href="#resume">Resume</a></li>
-          <li><a class="nav-link scrollto" href="#services">Abilities</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
     </div>
-  </header><!-- End Header -->
+  </div>
 
-  <main id="main">
+  <!-- Header -->
+  <header class="site-header">
+    <a class="brand hover-target" href="#home">Samuel<span>.dev</span></a>
+    <nav class="site-nav">
+      <a href="#home" class="hover-target">Início</a>
+      <a href="#about" class="hover-target">Sobre</a>
+      <a href="#trajectory" class="hover-target">Trajetória</a>
+      <a href="#tech" class="hover-target">Tecnologias</a>
+      <a href="#projects" class="hover-target">Projetos</a>
+      <a href="#education" class="hover-target">Arquivo</a>
+      <a href="#awards" class="hover-target">Conquistas</a>
+      <a href="#contact" class="hover-target">Contato</a>
+    </nav>
+  </header>
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero section">
+      <div class="hero-content">
+        <div class="hero-text parallax-element" data-speed="0.25">
+          <span class="badge hover-target">Desenvolvedor Frontend &amp; Entusiasta de IA</span>
+          <h1 class="hover-target interactive-text">Samuel Anderson <br /><span class="gradient-text">Machado
+              Lopes</span></h1>
+          <p class="hero-desc hover-target interactive-text">
+            Criando interfaces interativas de alta performance, unindo design moderno, animações fluidas, lógica e
+            inteligência artificial.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary hover-target">Ver Projetos</a>
+            <a href="#contact" class="btn btn-secondary hover-target">Contato</a>
+          </div>
+        </div>
 
-        <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"></div>
-          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-            <div class="content d-flex flex-column justify-content-center">
-              <h3>About me </h3>
-              <p>
-                I am a developer and administrator, waiting for a great future with new collaborators. I hope for great jobs, as I can work well in groups and wish to do beautiful work with anyone!
+        <div class="hero-visual parallax-element" data-speed="-0.20">
+          <div class="hero-img-container hover-target" id="heroImageContainer">
+            <div class="hero-img-glow"></div>
+            <img src="samuel.png" alt="Samuel Anderson" class="hero-img" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Mim -->
+    <section id="about" class="about section">
+      <div class="section-shell">
+        <span class="eyebrow hover-target">Sobre Mim</span>
+        <h2 class="section-title hover-target interactive-text parallax-element" data-speed="0.18">Transformando ideias
+          em experiências digitais vivas.</h2>
+        <p class="about-text hover-target interactive-text parallax-element" data-speed="0.22">
+          Especializado em desenvolvimento web moderno com forte apelo visual e funcional. Integração constante de
+          ferramentas inteligentes e automações no fluxo de desenvolvimento para garantir entregas eficientes e
+          inovadoras.
+        </p>
+      </div>
+    </section>
+
+    <!-- Trajetória (Cada card com imagem à esquerda + Parallax) -->
+    <section id="trajectory" class="trajectory section">
+      <div class="section-shell">
+
+        <span class="eyebrow hover-target">Trajetória</span>
+
+        <h2 class="section-title hover-target interactive-text">
+          Jornada Acadêmica 
+        </h2>
+
+
+        <div class="trajectory-cards-container">
+
+          <!-- CARD 1 -->
+          <div class="trajectory-card hover-target parallax-element" data-speed="0.20">
+
+            <div class="card-media">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx8Dw7Z10ptXNPCpkXPBTIz2-fWTiBQCKfhTYSM6RIJg&s=10"
+                alt="Escola Estadual Desembargador Floriano Cavalcanti" loading="lazy" />
+            </div>
+
+            <div class="card-content">
+
+              <span class="timeline-date">
+                2022 — 2025
+              </span>
+
+              <h3 class="interactive-text">
+                FLOCA - Escola Estadual Desembargador Floriano Cavalcanti
+              </h3>
+
+              <span class="card-subtitle">
+                Ensino Médio &amp; Técnico em Administração
+              </span>
+
+              <p class="interactive-text">
+                Minha base acadêmica e profissional começou no Ensino Médio,
+                integrado à formação técnica em Administração. Durante esse
+                período, desenvolvi conhecimentos em gestão, organização,
+                comunicação e planejamento, além de fortalecer competências
+                socioemocionais, liderança e trabalho em equipe.
               </p>
-              <div class="row">
-                <div class="col-md-6 d-md-flex align-items-md-stretch">
-                  <div class="count-box">
-                    <i class="bi bi-file-code"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Sites and projects</strong> see more, about my work in my github, click in the github icon!  <a class="bi bi-github" href="https://github.com/samuel123d"></a></p>
-                    
-                     
-                  </div>
-                </div>
 
-                <div class="col-md-6 d-md-flex align-items-md-stretch">
-                  <div class="count-box">
-                    <i class="bi bi-journal-richtext"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Graduations</strong>I'm graduating from 2 technical courses, one in administration at Desembargador Floriano Cavalcanti State School and the other in Systems Development at UFRN, I'm intermediate in English and I'm learning more on the Senac course..</p>
-                  </div>
-                </div>
-
-                <div class="col-md-6 d-md-flex align-items-md-stretch">
-                  <div class="count-box">
-                    <i class="bi bi-clock"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Years of experience</strong> I can say this, I can do a great job, even if I only have 2 years of learning in these areas, although I am a junior and a beginner I always try to do my best and always find a way to solve the problems that are given to me to resolve! </p>
-                  </div>
-                </div>
-
-                <div class="col-md-6 d-md-flex align-items-md-stretch">
-                  <div class="count-box">
-                    <i class="bi bi-award"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Certificates</strong>I had some certificates in both areas even though I haven't finished the technical courses yet and I had other online courses related to my areas of expertise that made me a better professional! </p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>I have several skills related to administration and systems development and most importantly emotional skills that make me good in interpersonal relationships. Some of my skills that I can measure will be measured below in these scroll bars. </p>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill">HTML <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
             </div>
-
-            <div class="progress">
-              <span class="skill">CSS <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">65%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
           </div>
 
-          <div class="col-lg-6">
 
-            <div class="progress">
-              <span class="skill">Typescript <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+          <!-- CARD 2 -->
+          <div class="trajectory-card hover-target parallax-element" data-speed="0.32">
+
+            <div class="card-media">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBb9IpSxVtyFAYx-PHnNWhQf1mI750M1Kqz3qFUeZbRg&s=10"
+                alt="Instituto Metrópole Digital da UFRN" loading="lazy" />
             </div>
 
-            <div class="progress">
-              <span class="skill">Google workspace <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            <div class="card-content">
 
-            <div class="progress">
-              <span class="skill">Pacote Office <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+              <span class="timeline-date">
+                2023 — 2025
+              </span>
 
-          </div>
+              <h3 class="interactive-text">
+                UFRN — Instituto Metrópole Digital
+              </h3>
 
-        </div>
+              <span class="card-subtitle">
+                Técnico em Informática para Internet
+              </span>
 
-      </div>
-    </section><!-- End Skills Section -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <p>Here you will see my professional, academic and personal summary, so you can learn more about my journey to date.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6">
-            <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>Samuel Anderson</h4>
-              <p><em>Innovative and deadline-focused developer, with more than 2 years of experience designing and developing websites and systems with my skills described in skills, I am dedicated and helpful, I believe that everything you deserve and achieve with hard work and perseverance is better.</em></p>
-              <p>
-              <ul>
-                <li>Natal - RN, 59075-050</li>
-                <li>+55 (84) 98711-5381</li>
-                <li>samuel.clipes@gmail.com</li>
-              </ul>
+              <p class="interactive-text">
+                Ampliei minha formação na área de tecnologia por meio do curso
+                Técnico em Informática para Internet, com formação direcionada
+                à Análise e Desenvolvimento de Sistemas. Nesse período, desenvolvi
+                habilidades em programação, desenvolvimento web, banco de dados,
+                engenharia de software e criação de soluções digitais.
               </p>
-            </div>
 
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Administration technician</h4>
-              <h5>2023 - in progress</h5>
-              <p><em>State School Desembargador Floriano Cavalcanti, Natal, RN</em></p>
-              <p>Technical course in administration given by the state that made me develop many skills in all aspects or as we say in people management C.H.A.V.E (Competences, Skills, Attitudes, Values ​​and Ethics). always prioritizing and developing my values ​​and emotions in the midst of this vast job market full of pressure and people.</p>
             </div>
-            <div class="resume-item">
-              <h4>Systems developer technician </h4>
-              <h5>2023 - in progress</h5>
-              <p><em>Instituto Digital Metrópole, Federal University of Rio Grande do Norte (UFRN), Natal, RN</em></p>
-              <p>I've been on this course for a year and a half, learning and consolidating my knowledge in systems programming.</p>
-            </div>
-           
           </div>
-          <div class="col-lg-6">
-            <h3 class="resume-title">Ead education</h3>
-            <div class="resume-item">
-              <h4>Basic font-end</h4>
-              <h5>2023</h5>
-              <p><em>Curso em video,EAD</em></p>
-              <p>link to the official course website <a href="https://www.cursoemvideo.com/blog/" target="_blank" style="display: inline; background-color: rgb(255, 255, 255,0.6); font-size: 14px; color: black; font-family: Arial, Helvetica, sans-serif; border-radius: 4px;">Click here</a></p>
-              <p>This course helped me a lot with my first steps in front-end development, my first steps in this area happened in this course.</p>
-            </div>
-            <div class="resume-item">
-              <h4>Group dynamics</h4>
-              <h5>2023</h5>
-              <p><em>Edune cursos,EAD</em></p>
-              <p>link to the official course website <a href="https://www.edunecursos.com.br/segmento/administracao#list-courses" target="_blank" style="display: inline; background-color: rgb(255, 255, 255,0.6); font-size: 14px; color: black; font-family: Arial, Helvetica, sans-serif; border-radius: 4px;">Click here</a></p>
-              <p>Through this course, I learned how to deal with group and dynamic situations that will help me in moments of learning and communication between groups and colleagues within the company.</p>
+
+
+          <!-- CARD 3 -->
+          <div class="trajectory-card hover-target parallax-element" data-speed="0.18">
+
+            <div class="card-media">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9aDRQIo5fFSHDfCdDALEgXOa0tGA5inU5N8VXgO4bBA&s=10"
+                alt="Universidade Federal do Rio Grande do Norte" loading="lazy" />
             </div>
 
-            <h3 class="resume-title">Certificates</h3>
-            <div class="resume-item">
-              <h4>My certificates</h4>
-              <p>Click on the folder below ↓</p>
-              <a href="./dist/certificates.html" target="_blank"><button type="button" class="btn btn-secondary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder" viewBox="0 0 16 16">
-  <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z"></path>
-</svg>
-              </button>
-            </a>
+            <div class="card-content">
+
+              <span class="timeline-date">
+                Em andamento
+              </span>
+
+              <h3 class="interactive-text">
+                UFRN — Bacharelado em Ciência e Tecnologia
+              </h3>
+
+              <span class="card-subtitle">
+                Formação interdisciplinar em Ciência e Tecnologia
+              </span>
+
+              <p class="interactive-text">
+                Atualmente, continuo minha formação na UFRN, cursando Ciência e
+                Tecnologia. A graduação amplia minha visão interdisciplinar,
+                conectando conhecimentos de computação, ciência, inovação e
+                resolução de problemas para desenvolver soluções cada vez mais
+                completas e criativas.
+              </p>
+
             </div>
+          </div>
 
         </div>
-
       </div>
-    </section><!-- End Resume Section -->
+    </section>
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="container">
+    <!-- Tecnologias -->
+    <section id="tech" class="tech section">
+      <div class="section-shell">
+        <span class="eyebrow hover-target">Tecnologias</span>
+        <h2 class="section-title hover-target interactive-text">Ferramentas &amp; Ecossistema</h2>
 
-        <div class="section-title">
-          <h2>Abilities</h2>
-          <p>Here you can get know more about my Abilities! </p>
+        <div class="tech-grid">
+          <div class="tech-card hover-target parallax-element" data-speed="0.15">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+            <span>HTML5</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.22">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+            <span>CSS3</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.28">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              alt="JavaScript" />
+            <span>JavaScript</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.16">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+            <span>React</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.24">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+            <span>C++</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.30">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" />
+            <span>Kotlin</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.18">
+            <i class="bi bi-cpu tech-icon-font"></i>
+            <span>IA</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.25">
+            <i class="bi bi-stars tech-icon-font"></i>
+            <span>Google Gemini</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.20">
+            <i class="bi bi-google tech-icon-font"></i>
+            <span>Google Workspace</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.15">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+            <span>Git</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.22">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="icon-invert"
+              alt="GitHub" />
+            <span>GitHub</span>
+          </div>
+          <div class="tech-card hover-target parallax-element" data-speed="0.27">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino" />
+            <span>Arduino</span>
+          </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bi bi-gear"></i></div>
-              <h4 class="title"><a href="">Operacional Abilities</a></h4>
-              <p class="description">I always try to use the skills learned in my training not only in work but in life, always being professional and learning, if not I don't know how to do something I learn!</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bi bi-emoji-laughing-fill"></i></div>
-              <h4 class="title"><a href="">Emotional abilitie</a></h4>
-              <p class="description">I always try to be focused on work and friendly with everyone, seeking the best relationship and fulfillment where I work.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bi bi-lightning-charge"></i></div>
-              <h4 class="title"><a href="">Resilience and adaptation</a></h4>
-              <p class="description">I work well under pressure, always adapting and resolving work and personal conflicts.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bi bi-wechat"></i></div>
-              <h4 class="title"><a href="">Bilingual</a></h4>
-              <p class="description">In addition to my mother tongue, Portuguese, I can read and write at a reasonable level and converse in English</p>
-            </div>
-          </div>
-
-        </div>
-
       </div>
-    </section><!-- End Services Section -->
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact section-bg">
-      <div class="container">
+    </section>
 
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Here are my ways of communicating. If you are interested in getting in touch, please try using the contact methods below.</p>
-        </div>
+    <!-- Trabalhos e Projetos -->
+    <section id="projects" class="projects section">
+      <div class="section-shell">
+        <span class="eyebrow hover-target">Experiência Prática</span>
+        <h2 class="section-title hover-target interactive-text">Trabalhos &amp; Projetos que Participei</h2>
 
-        <div class="row">
-
-          <div class="col-lg-5 col-md-4">
-            <div class="contact-about">
-              <h3>Samuel Anderson</h3>
-              <p>Below are my social networks in case you want to get in touch!</p>
-              <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=100042481307140" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com/samuel_anderson.ml/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/samuel-anderson-79007a26a/"  class="linkedin"><i class="bi bi-linkedin"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=+5584987115381&text=Click+to+start+a+conversation+with+me%21+%EF%BF%BD%EF%BF%BD"  class="linkedin"><i class="bi bi-whatsapp"></i></a>
+        <div class="projects-grid">
+          <article class="project-card hover-target parallax-element" data-speed="0.25">
+            <div class="project-media">
+              <img src="obama.png"
+                alt="Plataforma OBAMA" />
+              <div class="media-overlay"></div>
+            </div>
+            <div class="project-info">
+              <h3 class="interactive-text">Plataforma OBAMA</h3>
+              <p class="interactive-text">Objeto de aprendizagem interativo voltado para a modernização do ensino
+                prático.</p>
+              <div class="tags">
+                <span>JavaScript</span><span>CSS3</span><span>IA Assistiva</span>
               </div>
+            </div>
+          </article>
+
+          <article class="project-card hover-target parallax-element" data-speed="-0.22">
+            <div class="project-media">
+             
+                <img src="steam.jpeg"/>
               
+              <div class="media-overlay"></div>
+            </div>
+            <div class="project-info">
+              <h3 class="interactive-text">eSTEAMuLAB</h3>
+              <p class="interactive-text">programa de pesquisa que estuda a abordagem STEAM em relação com a aprredizagem, formação docente e desenvolvimento de recursos educacionais digitais.</p>
+              <div class="tags">
+                <span>Canvas</span><span>JS</span><span>Web Audio</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arquivo de Projetos Pessoais (Carrossel Infinito com Seleção de Cards) -->
+    <section id="education" class="education section">
+      <div class="section-shell">
+        <span class="eyebrow hover-target">Projetos Pessoais</span>
+        <h2 class="section-title hover-target interactive-text">Repositórios de Projetos Pessoais</h2>
+        <p class="section-subtext">Passe o mouse para pausar a rotação ou clique em qualquer card para inspecionar.</p>
+
+        <div class="carousel-wrapper hover-target parallax-element" data-speed="0.18">
+          <div class="infinite-carousel-track" id="carouselTrack">
+            <!-- Card 1 -->
+            <div class="archive-card hover-target" onclick="selectArchiveCard(this)">
+              <div class="card-header-badge">DOCUMENTO #01</div>
+              <h3 class="interactive-text">Estrutura de Dados em C++</h3>
+              <p class="interactive-text">Algoritmos de alta performance, gerenciamento avançado de memória e ponteiros.
+              </p>
+              <div class="archive-media">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80"
+                  alt="C++ Code" />
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="archive-card hover-target" onclick="selectArchiveCard(this)">
+              <div class="card-header-badge">DOCUMENTO #02</div>
+              <h3 class="interactive-text">Kotlin &amp; IA Mobile</h3>
+              <p class="interactive-text">Integração de assistentes inteligentes via APIs do Google Gemini em apps
+                Android.</p>
+              <div class="archive-media">
+                <video autoplay loop muted playsinline>
+                  <source
+                    src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-41553-large.mp4"
+                    type="video/mp4" />
+                </video>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="archive-card hover-target" onclick="selectArchiveCard(this)">
+              <div class="card-header-badge">DOCUMENTO #03</div>
+              <h3 class="interactive-text">Prototipagem de Circuitos Arduino</h3>
+              <p class="interactive-text">Projetos de hardware integrando sensores, automação e comunicação serial.</p>
+              <div class="archive-media">
+                <img src="https://images.unsplash.com/photo-1553406830-ef2513450d76?auto=format&fit=crop&w=600&q=80"
+                  alt="Arduino Hardware" />
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="archive-card hover-target" onclick="selectArchiveCard(this)">
+              <div class="card-header-badge">DOCUMENTO #04</div>
+              <h3 class="interactive-text">Web Apps Responsivos com React</h3>
+              <p class="interactive-text">Aplicações modernas focadas em estado global, componentes reutilizáveis e UX
+                avançada.</p>
+              <div class="archive-media">
+                <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=600&q=80"
+                  alt="React Dev" />
+              </div>
+            </div>
+
+            <!-- DUPLICAÇÃO PARA EFEITO LOOP INFINITO -->
+            <div class="archive-card hover-target" onclick="selectArchiveCard(this)">
+              <div class="card-header-badge">DOCUMENTO #01</div>
+              <h3 class="interactive-text">Estrutura de Dados em C++</h3>
+              <p class="interactive-text">Algoritmos de alta performance, gerenciamento avançado de memória e ponteiros.
+              </p>
+              <div class="archive-media">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80"
+                  alt="C++ Code" />
+              </div>
+            </div>
+
+            <div class="archive-card hover-target" onclick="selectArchiveCard(this)">
+              <div class="card-header-badge">DOCUMENTO #02</div>
+              <h3 class="interactive-text">Kotlin &amp; IA Mobile</h3>
+              <p class="interactive-text">Integração de assistentes inteligentes via APIs do Google Gemini em apps
+                Android.</p>
+              <div class="archive-media">
+                <video autoplay loop muted playsinline>
+                  <source
+                    src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-41553-large.mp4"
+                    type="video/mp4" />
+                </video>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="col-lg-6 col-md-8">
-            <div class="info">
-              <div class="d-flex align-items-center">
-                <i class="bi bi-geo-alt"></i>
-                <p>Natal,RN - Brazil </p>
-              </div>
+    <!-- Premiação -->
+    <section id="awards" class="award section">
+      <div class="section-shell">
+        <div class="news-paper hover-target parallax-element" data-speed="0.22">
+          <div class="news-header">
+            <span class="news-edition">EDIÇÃO ESPECIAL • 2025</span>
+            <span class="news-category">DESTAQUE NACIONAL</span>
+          </div>
+          <div class="news-main">
+            <div class="news-badge">2º LUGAR</div>
+            <h2 class="news-title interactive-text">Prêmio Ctrl+E 2025</h2>
+            <p class="news-sub interactive-text">"Batalha de Algarismos: A Missão de Rahim" ganha reconhecimento por
+              inovação em tecnologia educacional.</p>
+            <p class="news-desc interactive-text">
+              Projeto premiado nacionalmente pelo engajamento de alunos por meio de gamificação e interatividade,
+              combinando design web moderno e acessibilidade. confira a noticia no protal oficial da UFRN! <a href="https://www.metropoledigital.ufrn.br/portal/noticias/7757/alunos-do-imd-s%C3%A3o-premiados-em-evento-nacional-sobre-tecnologias-educacionais-" target="_blank" class="interactive-text"style=" color:#007bff">Clique aqui!</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-              <div class="d-flex align-items-center mt-4">
-                <i class="bi bi-envelope"></i>
-                <p>Samuel.clipes@gmail.com</p>
-              </div>
-
-              <div class="d-flex align-items-center mt-4">
-                <i class="bi bi-phone"></i>
-                <p>+55 (84) 98711-5381</p>
-              </div>
-
-            </div>
+    <!-- Contato -->
+    <section id="contact" class="contact section">
+      <div class="section-shell">
+        <div class="contact-wrapper hover-target parallax-element" data-speed="0.18">
+          <div class="contact-header">
+            <span class="eyebrow">Contato</span>
+            <h2 class="contact-brand interactive-text">Samuel<span>.dev</span></h2>
+            <p class="contact-desc interactive-text">
+              Aqui estão minhas formas de comunicação. Caso tenha interesse em entrar em contato, fique à vontade para
+              utilizar qualquer um dos canais abaixo!
+            </p>
           </div>
 
-         
+          <div class="contact-grid">
+            <div class="contact-info-list">
+              <div class="info-item hover-target">
+                <div class="info-icon"><i class="bi bi-geo-alt"></i></div>
+                <div>
+                  <span class="info-label">Localização</span>
+                  <p class="interactive-text">Natal, RN — Brasil</p>
+                </div>
+              </div>
+
+              <div class="info-item hover-target">
+                <div class="info-icon"><i class="bi bi-envelope"></i></div>
+                <div>
+                  <span class="info-label">E-mail</span>
+                  <p><a href="mailto:Samuel.clipes@gmail.com" class="interactive-text">Samuel.clipes@gmail.com</a></p>
+                </div>
+              </div>
+
+              <div class="info-item hover-target">
+                <div class="info-icon"><i class="bi bi-phone"></i></div>
+                <div>
+                  <span class="info-label">Telefone / WhatsApp</span>
+                  <p><a
+                      href="https://api.whatsapp.com/send?phone=+5584987115381&text=Olá!%20Vim%20pelo%20seu%20portfólio."
+                      target="_blank" class="interactive-text">+55 (84) 98711-5381</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-social-box">
+              <span class="info-label">Redes Sociais &amp; Mensagens</span>
+              <div class="social-links-grid">
+                <a href="https://api.whatsapp.com/send?phone=+5584987115381&text=Olá!%20Vim%20pelo%20seu%20portfólio."
+                  target="_blank" class="social-btn whatsapp hover-target">
+                  <i class="bi bi-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://www.linkedin.com/in/samuel-anderson-79007a26a/" target="_blank"
+                  class="social-btn linkedin hover-target">
+                  <i class="bi bi-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://www.instagram.com/samuel_anderson.ml/" target="_blank"
+                  class="social-btn instagram hover-target">
+                  <i class="bi bi-instagram"></i> Instagram
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100042481307140" target="_blank"
+                  class="social-btn facebook hover-target">
+                  <i class="bi bi-facebook"></i> Facebook
+                </a>
+              </div>
+            </div>
+          </div>
 
         </div>
-
       </div>
-    </section><!-- End Contact Section -->
+    </section>
+  </main>
 
-  </main><!-- End #main -->
+  <footer class="site-footer">
+    <p class="hover-target interactive-text">&copy; 2026 Samuel Anderson (Samuel123d) — Todos os direitos reservados.
+    </p>
+  </footer>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Lonely</span></strong>. All Rights Reserved<br>
-        
-        &copy; Copyright <strong><span>Samuel Anderson</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-lonely/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script>
- $(document).ready(function() {
-      $("#ele1").slideToggle(2000).slideToggle(1000);
-      $("#ele2").slideToggle(2000).slideToggle(1000);
-    });
-    
-
-
-
-</script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <script src="script.js"></script>
 </body>
 
 </html>
