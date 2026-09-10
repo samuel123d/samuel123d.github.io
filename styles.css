@@ -67,7 +67,7 @@ a {
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-100px, -100px, 0);
   transition: transform 0.2s ease-out;
 }
 
@@ -145,7 +145,7 @@ a {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-100px, -100px, 0);
   transition: transform 0.1s ease, width 0.2s, height 0.2s, background-color 0.2s;
 }
 
@@ -157,7 +157,7 @@ a {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-100px, -100px, 0);
   transition: transform 0.15s ease-out, width 0.25s, height 0.25s, border-color 0.25s, background-color 0.25s;
 }
 
@@ -189,6 +189,7 @@ body.hovered .cursor-follower {
 .parallax-element {
   will-change: transform;
   transition: transform 0.1s ease-out;
+  transform: translate3d(0, var(--parallax-y, 0), 0);
 }
 
 .interactive-text {
@@ -259,6 +260,14 @@ body.hovered .cursor-follower {
   backdrop-filter: blur(12px);
   background: rgba(9, 10, 15, 0.7);
   border-bottom: 1px solid var(--border);
+  z-index: 10001;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+body.is-loading .site-header {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .brand {
@@ -281,6 +290,22 @@ body.hovered .cursor-follower {
 }
 
 .site-nav a:hover { color: #fff; }
+
+.site-nav a.is-current {
+  color: #fff;
+  position: relative;
+}
+
+.site-nav a.is-current::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.55rem;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
 
 .menu-toggle {
   display: none;
@@ -322,6 +347,7 @@ body.hovered .cursor-follower {
 
 .gradient-text {
   background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -570,6 +596,7 @@ body.hovered .cursor-follower {
   border: 1px solid var(--border);
   border-radius: 18px;
   overflow: hidden;
+  position: relative;
   transition: border-color 0.3s, transform 0.3s;
 }
 
@@ -577,6 +604,8 @@ body.hovered .cursor-follower {
   border-color: var(--border-hover);
   transform: translateY(-6px);
 }
+
+
 
 .project-media {
   position: relative;
@@ -729,6 +758,27 @@ body.hovered .cursor-follower {
   padding: 3.5rem;
 }
 
+.award-intro-shell {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.8rem;
+}
+
+.award .news-paper {
+  background: linear-gradient(135deg, rgba(18, 22, 31, 0.96), rgba(9, 10, 15, 0.92));
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .news-header {
   display: flex;
   justify-content: space-between;
@@ -857,6 +907,8 @@ body.hovered .cursor-follower {
 
 /* Responsividade */
 @media (max-width: 900px) {
+  .bg-glow, .particles-container { display: none; }
+  .parallax-element { transform: none; }
   .hero-content, .trajectory-card, .contact-grid {
     grid-template-columns: 1fr;
     text-align: center;
@@ -891,6 +943,8 @@ body.hovered .cursor-follower {
     background: rgba(9, 10, 15, 0.96);
     border: 1px solid var(--border);
     border-radius: 12px;
+    position: relative;
+    z-index: 10002;
   }
 
   .site-header.menu-open .site-nav { display: flex; }
@@ -901,6 +955,8 @@ body.hovered .cursor-follower {
   }
 
   .site-nav a:hover { background: rgba(0, 242, 254, 0.08); }
+  .site-nav a.is-current { background: rgba(0, 242, 254, 0.1); color: var(--primary); }
+  .site-nav a.is-current::after { display: none; }
 
   .site-header.menu-open .menu-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
   .site-header.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
@@ -969,6 +1025,12 @@ body.hovered .cursor-follower {
   body { cursor: auto; }
   .custom-cursor, .cursor-follower { display: none; }
   .archive-card:hover, .project-card:hover, .trajectory-card:hover { transform: none; }
+}
+
+@media (max-width: 380px) {
+  .badge { font-size: 0.72rem; }
+  .hero-img-container { width: min(88vw, 280px); height: min(110vw, 330px); }
+  .news-paper, .contact-wrapper { padding: 1.1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
